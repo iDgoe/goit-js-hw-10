@@ -8,13 +8,10 @@ const DEBOUNCE_DELAY = 300;
 const countryIn = document.querySelector('#search-box');
 const liCountry = document.querySelector('.country-list');
 const divCountry = document.querySelector('.country-info');
-console.log(countryIn);
-console.log(liCountry);
-console.log(divCountry);
 
 let massСountries = [];
 
-// функція витягає масив по запросу
+// витягає масив по запиту
 const inputСountry = () => {
   resetEl(liCountry);
   resetEl(divCountry);
@@ -36,8 +33,7 @@ const inputСountry = () => {
   }
 };
 
-// функція опрацьовує отриманий масив
-
+// опрацьовує отриманий масив
 function countryArr(massСountries) {
   const arrLength = massСountries.length;
   resetEl(liCountry);
@@ -57,10 +53,9 @@ function countryArr(massСountries) {
       'afterbegin',
       createCounrtyOne(massСountries)
     );
-    console.log('1');
   }
 }
-// швиводить список стран
+// виводить список стран
 function createCounrtyList(massСountries) {
   const result = massСountries
     .map(({ name, flags }) => {
@@ -73,9 +68,11 @@ function createCounrtyList(massСountries) {
   return result;
 }
 
+// виводить інфо по одній країні
 function createCounrtyOne(massСountries) {
   const result = massСountries
     .map(({ name, capital, population, flags, languages }) => {
+      console.log(languages);
       return `
   <div class="country__flag">
     <img class="country__img" src="${flags.png}" alt="flag">
@@ -97,7 +94,7 @@ function createCounrtyOne(massСountries) {
   return result;
 }
 
-//видалити результати минулого виклику
+// видаляє результати минулого виклику
 function resetEl(el) {
   el.innerHTML = '';
 }
