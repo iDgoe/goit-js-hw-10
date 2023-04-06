@@ -18,7 +18,7 @@ let massСountries = [];
 const inputСountry = () => {
   resetEl(liCountry);
   resetEl(divCountry);
-  addText = countryIn.value.trim();
+  let addText = countryIn.value.trim();
   if (!addText) {
     return;
   } else {
